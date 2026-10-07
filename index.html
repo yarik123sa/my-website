@@ -1,15 +1,54 @@
 <!doctype html>
-<html lang="en">
+<html lang="uk">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Focus — Pomodoro</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Практична робота з Git та GitHub Pages</h1>
-  <script>
-    console.log('Hello From Console')
-  </script>
+  <header class="top">
+    <h1>Практична робота з Git та GitHub Pages</h1>
+    <p class="sub">Міні-проєкт: Pomodoro-таймер зі списком задач · HTML / CSS / JS</p>
+  </header>
+
+  <main class="app" data-mode="focus">
+    <section class="card timer">
+      <div class="modes" role="tablist">
+        <button class="mode active" data-mode="focus">Фокус</button>
+        <button class="mode" data-mode="short">Перерва</button>
+        <button class="mode" data-mode="long">Довга перерва</button>
+      </div>
+
+      <div class="dial">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <circle class="track" cx="100" cy="100" r="88"/>
+          <circle class="progress" cx="100" cy="100" r="88"/>
+        </svg>
+        <div class="time" id="time">25:00</div>
+      </div>
+
+      <div class="controls">
+        <button class="btn primary" id="start">Старт</button>
+        <button class="btn" id="reset">Скинути</button>
+      </div>
+      <p class="stats">Завершено сесій: <b id="sessions">0</b></p>
+    </section>
+
+    <section class="card tasks">
+      <h2>Задачі</h2>
+      <form id="task-form" autocomplete="off">
+        <input id="task-input" type="text" placeholder="Що робимо?" maxlength="80">
+        <button class="btn primary" type="submit">+</button>
+      </form>
+      <ul id="task-list"></ul>
+      <p class="empty" id="empty">Поки порожньо — додай першу задачу.</p>
+    </section>
+  </main>
+
+  <footer class="foot">Денис Ярослав · КІПЗС-24-2</footer>
+
+  <script src="index.js"></script>
 </body>
 </html>
